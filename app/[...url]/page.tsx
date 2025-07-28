@@ -1,4 +1,3 @@
-import React from "react";
 import { cookies } from "next/headers";
 import { ragChat } from "@/lib/rag-chat";
 import { redis } from "@/lib/redis";
@@ -31,7 +30,6 @@ const DynamicChatPage = async ({ params }: DynamicChatPageProps) => {
     );
 
     const isIndexed = await redis.sismember("indexed-urls", targetUrl);
-
     console.log(
         `Content from ${targetUrl} already indexed?`,
         Boolean(isIndexed)
