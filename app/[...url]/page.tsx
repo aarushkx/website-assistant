@@ -4,9 +4,7 @@ import { redis } from "@/lib/redis";
 import ChatContainer from "@/components/chat-container";
 
 interface DynamicChatPageProps {
-    params: {
-        url: Promise<string[] | undefined>;
-    };
+    params: Promise<{ url: string[] | undefined }>;
 }
 
 const reconstructUrl = ({ url }: { url: string[] }) => {
