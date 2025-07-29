@@ -27,8 +27,6 @@ export const POST = async (request: NextRequest) => {
             sessionId,
         });
 
-        console.log("RESPONSE:", response); // TODO: Remove this.
-
         return aiUseChatAdapter(response);
     } catch (error) {
         console.error("Error processing chat request:", error);

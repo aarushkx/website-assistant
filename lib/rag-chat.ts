@@ -12,5 +12,5 @@ const llamaModel = model("llama2") as OpenAIChatLanguageModel;
 export const ragChat = new RAGChat({
     model: llamaModel,
     redis: redis,
-    debug: true, // TODO: Remove this.
+    debug: false,
 });
