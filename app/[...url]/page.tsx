@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { ragChat } from "@/lib/rag-chat";
 import { redis } from "@/lib/redis";
+import ChatContainer from "@/components/chat-container";
 
 interface DynamicChatPageProps {
     params: {
@@ -58,10 +59,10 @@ const DynamicChatPage = async ({ params }: DynamicChatPageProps) => {
     }
 
     return (
-        <>
-            <p>Session ID: {chatSessionId}</p>
-            <pre>{JSON.stringify(initialMessages, null, 2)}</pre>
-        </>
+        <ChatContainer
+            initialMessages={initialMessages}
+            sessionId={chatSessionId}
+        />
     );
 };
 
