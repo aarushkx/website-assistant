@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Website Assistant
 
-## Getting Started
+Hey there! This is an intelligent web application that transforms any website into an interactive knowledge base. Give it a URL, and you can immediately start conversing with the site's content, powered by Ollama and RAG technology. It uses Upstash Redis for caching and session management, along with Upstash Vector Store for data storage.
 
-First, run the development server:
+![Preview](./public/preview/image.png)
+
+## Setup Instructions
+
+Create a `.env.local` file in the root directory of your project and add the following environment variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+UPSTASH_VECTOR_REST_URL=your_upstash_vector_rest_url
+UPSTASH_VECTOR_REST_TOKEN=your_upstash_vector_rest_token
+
+UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Note that this application uses the Ollama Llama2 model by default, so ensure you have Ollama installed locally on your machine. You can also use any model compatible with OpenAI—just configure it in the `lib/rag-chat.ts` file.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Credits
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project was inspired by and built following the tutorial by **Josh tried upstash**.
 
-## Learn More
+[Watch the full tutorial here](https://www.youtube.com/watch?v=Ka8GoIUhM3g&t=4045s)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Special thanks to Josh for the excellent walkthrough on building RAG applications with Upstash!
