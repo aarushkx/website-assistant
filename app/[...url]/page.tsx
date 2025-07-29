@@ -10,7 +10,7 @@ interface DynamicChatPageProps {
 }
 
 const reconstructUrl = ({ url }: { url: string[] }) => {
-    let decoded = url.map((component) => decodeURIComponent(component));
+    const decoded = url.map((component) => decodeURIComponent(component));
     let joined = decoded.join("/");
     joined = joined.replace(/^(https?:\/)([^/])/, "$1/$2");
     return joined;

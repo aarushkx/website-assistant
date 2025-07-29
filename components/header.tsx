@@ -9,8 +9,8 @@ const Header = () => {
 
     const getWebsite = () => {
         if (!url || url.length === 0) return "Unknown website";
-        let decoded = url.map(decodeURIComponent);
-        let joined = decoded.join("/");
+        const decoded = url.map(decodeURIComponent);
+        const joined = decoded.join("/");
         return joined.replace(/^https?:\/{0,2}(www\.)?/, "");
     };
 

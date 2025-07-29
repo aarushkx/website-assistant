@@ -53,9 +53,9 @@ const Messages = ({ messages, isLoading }: MessagesProps) => {
                                 Ready to Chat!
                             </h3>
                             <p className="text-muted-foreground text-base">
-                                I've analyzed the content and I'm ready to
+                                I&pos;ve analyzed the content and I&pos;m ready to
                                 answer your questions. Ask me anything about
-                                what you're reading!
+                                what you&pos;re reading!
                             </p>
                         </div>
                     </div>
