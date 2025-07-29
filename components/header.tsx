@@ -1,21 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import ThemeToggle from "./theme-toggle";
 
 const Header = () => {
     const params = useParams();
-    const { theme, setTheme } = useTheme();
-
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
     const url = params.url as string[];
 
     const getWebsite = () => {
@@ -26,10 +15,6 @@ const Header = () => {
     };
 
     const website = getWebsite();
-
-    const toggleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
 
     return (
         <header className="flex items-center justify-center w-full h-16 bg-background px-4 mb-4">
@@ -50,19 +35,7 @@ const Header = () => {
                     </span>
                 </h1>
 
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={toggleTheme}
-                    className="h-8 w-8 p-0 cursor-pointer rounded-full hover:bg-accent flex-shrink-0"
-                >
-                    {mounted &&
-                        (theme === "dark" ? (
-                            <Sun className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
-                        ) : (
-                            <Moon className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
-                        ))}
-                </Button>
+                <ThemeToggle />
             </div>
         </header>
     );
